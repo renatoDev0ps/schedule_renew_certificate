@@ -1,0 +1,12 @@
+[Unit]
+Description = Scheduler remote control daemon
+After = network.target network-online.target dbus.service
+Wants = network-online.target
+Requires = dbus.service
+
+[Service]
+ExecStart = /usr/bin/bash /home/renatodevops/Development/SCHEDULER_PYTHON/schedinit.sh
+Restart = on-abort
+
+[Install]
+WantedBy = multi-user.target
